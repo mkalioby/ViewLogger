@@ -8,7 +8,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='ViewLogger',
-    version='2.2.0',
+    version='2.2.4',
     packages=find_packages(exclude=['docs','tests*']),
     include_package_data=True,
     license='MIT',
@@ -38,6 +38,7 @@ classifiers=[
         "Framework :: Django :: 3.2",
         "Framework :: Django :: 4.0",
         "Framework :: Django :: 4.1",
+        "Framework :: Django :: 4.2",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",

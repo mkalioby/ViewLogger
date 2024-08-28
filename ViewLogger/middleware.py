@@ -50,5 +50,4 @@ class ViewLoggerMiddleware(Object):
             now = getattr(time,"time_ns",time.time)()
             d = (now - request.session.pop("ViewLoggerStart",now))
             log.duration = "{0:.3f}".format(d)
-            print now,request.session.get("ViewLoggerStart"), log.duration
             log.save()

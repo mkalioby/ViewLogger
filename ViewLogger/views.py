@@ -1,9 +1,4 @@
-from django.shortcuts import render_to_response
 from django.template import RequestContext
-try:
-    from django.core.context_processors import csrf
-except:
-    from django.template.context_processors import csrf
 import datetime
 from .forms import *
 from django.db.models import Q
@@ -26,7 +21,6 @@ def mainViewLogger(request):
     views = [(s['view_name'], s['view_name']) for s in Log.objects.values("view_name").distinct().order_by("view_name")]
     if request.method == "GET":
         res["form"] = ViewLogger_Form(views=views)
-        res.update(csrf(request))
         return render(request,"mainLog.html", res)
     if request.method == "POST":
         form = ViewLogger_Form(request.POST, views=views)
@@ -212,5 +206,4 @@ def search_in_archives(request):
             return render(request,"searchInViewLogger.html", res)
     if request.method == "GET":
         res["form"] = ViewLogger_Form()
-        res.update(csrf(request))
         return render(request,"searchInViewLogger.html", res)
